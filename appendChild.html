@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const divA = document.querySelector('#first');
+        const h1A = document.createElement('h1');
+        divA.appendChild(h1A);
+        divA.style.height = "150px";
+        divA.style.border = "1px solid black";
+        h1A.textContent = '첫 번째 div 태그 내부';
+
+        const divB = document.querySelector('#second');
+        const h1B = document.createElement('h1');
+        divB.appendChild(h1B);
+        divB.style.height = "150px";
+        divB.style.border = "1px solid black";
+        h1B.textContent = '두 번째 div 태그 내부';
+        
+        const h1 = document.createElement("h1");
+        h1.textContent = '이동하는 h1 태그';
+
+        const toFirst = () => {
+            divA.appendChild(h1);
+            setTimeout(toSecond, 2000);
+        }
+        const toSecond = () => {
+            divB.appendChild(h1);
+            setTimeout(toFirst, 2000);
+        }
+        
+        toFirst()
+    })
+</script>
+<body>
+    <div id="first"></div>
+    <div id="second"></div>
+</body>
+</html>
+

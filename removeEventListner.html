@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        let counter = 0;
+        let isConnect = false;
+
+        const h1 = document.querySelector('h1');
+        const p = document.querySelector('p');
+        const connectButton = document.querySelector('#connect');
+        const disconnectButton = document.querySelector('#disconnect');
+
+        document.body.style.textAlign = 'center';
+        h1.style.userSelect = 'none';
+        h1.style.marginTop = '100px';
+        
+        connectButton.style.width = "100px";
+        connectButton.style.height = "100px";
+        connectButton.textContent = "연결";
+        connectButton.style.fontSize = "30px";
+
+        disconnectButton.style.width = "100px";
+        disconnectButton.style.height = "100px";
+        disconnectButton.textContent = "해제";
+        disconnectButton.style.fontSize = "30px";
+
+        listener = (event) => {
+            counter++;
+            h1.textContent = `클릭 횟수 : ${counter}`;
+        }
+
+        connectButton.addEventListener('click', () => {
+            if(isConnect === false) {
+                h1.addEventListener('click', listener);
+                p.textContent = "이벤트 연결 상태 : 연결";
+                isConnect = true;
+            }
+        })
+
+        disconnectButton.addEventListener('click', () => {
+            if(isConnect === true) {
+                h1.removeEventListener('click', listener);
+                p.textContent = "이벤트 연결 상태 : 해제";
+                isConnect = false;
+            }
+        })
+    })
+</script>
+<body>
+    <h1>클릭 횟수 : 0</h1>
+    <p>이벤트 연결 상태 : 해제</p>
+    <button id="connect"></button>
+    <button id="disconnect"></button>
+</body>
+</html>
