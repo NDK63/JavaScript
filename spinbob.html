@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        let bob = document.getElementById("bob");
+        let spin = 0;
+        function a() {
+            setInterval(() => {
+                bob.style.transform = "rotate(" + spin + "deg)";
+                spin++;
+                spin %= 360;
+            }, 10)
+        }
+        
+    </script>
+</head>
+<body>
+    <button onclick="a()"></button>
+    <img id="bob" src="spongebob.png">
+</body>
+</html>

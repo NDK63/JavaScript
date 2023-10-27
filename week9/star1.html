@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script>
+    // 역삼각형
+    // for(let i = 0; i < 10; i++) {
+    //     for(let j = 10; j > i; j--) {
+    //         document.write("★")
+    //     }
+    //     document.write("<br>")
+    // }
+
+    for(let i = 0; i < 10; i++) {
+        for(let j = 0; j <= i; j++) {
+            if(j % 2 == 0) {
+                document.write("○");
+            } else {
+                document.write("●");
+            }
+        }
+        document.write("<br>")
+    }
+</script>
+<body>
+</body>
+</html>
